@@ -1,1 +1,1 @@
-On a read to improve critical thinking skills in both math and c++
+little puzzles to improve critical thinking across both math and c++

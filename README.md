@@ -1,1 +1,1 @@
-little puzzles to improve critical thinking across both math and c++
+Collection of my solutions to Project Euler Questions in C++

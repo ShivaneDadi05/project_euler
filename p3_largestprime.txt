@@ -1,0 +1,59 @@
+// The prime factors of 13195 are 5, 7, 13 and 29.
+// What is the largest prime factor of the number 600851475143
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool is_prime(long long query_number) {
+    // if number is even -> not prime
+    // if odd number between 3 and sqrt(number) divides the number -> not prime
+
+    if (query_number % 2 == 0) return false;
+    for (long long i = 3; i <= sqrt(query_number); i+=2) {
+        if (query_number % i == 0) return false;
+    }
+    return true;
+}
+
+long long naive_approach(long long target_num) {
+
+
+    long long largest_prime_factor = 1;
+    // Find smallest number that divides target
+    long long smallest_factor;
+    for (long long i = 2; i <= target_num; i++) {
+        if (target_num % i == 0) {
+            smallest_factor = i;
+            break;
+        }
+    }
+
+    cout << "smallest_factor: " << smallest_factor << endl;
+    cout << "target_num/smallest_factor: " << target_num/smallest_factor << endl;
+    for (long long j = smallest_factor; j <= target_num/smallest_factor; j++) {
+        if (target_num % j != 0) continue;
+        if (!is_prime(j)) continue;
+
+        largest_prime_factor = j;
+    }
+
+    return largest_prime_factor;
+}
+
+long long prime_factorization(long long target_num) {
+    int smallest_prime;
+    for (long long j = smallest_factor; j <= sqrt(target_num); j++) {
+        if (target_num % j != 0) continue;
+        if (!is_prime(j)) continue;
+
+        smallest_prime = j;
+        continue;
+    }
+}
+
+int main() {
+    const long long target_num = 600851475143;
+    cout << naive_approach(target_num) << endl;
+    return 0;
+}
